@@ -73,11 +73,13 @@ nav ul li button:hover {
 }
 main {
   padding: 1rem;
+  max-height: 100vh;
+  overflow-y: scroll;
+}
+main .container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-height: 100vh;
-  overflow-y: scroll;
 }
 main .card {
   margin: 1rem;

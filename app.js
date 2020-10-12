@@ -1,7 +1,7 @@
 
 const input = document.querySelector("#input");
 const searchBtn = document.querySelector("#search-btn");
-const main = document.querySelector("main");
+const container = document.querySelector(".container");
 
 searchBtn.addEventListener("click", event => {
   console.log(event);
@@ -14,8 +14,8 @@ document.addEventListener("keypress", event => {
   }
 });
 
-function getBooks(search, maxResult = 10, startIndex = 0) {
-  main.innerHTML = "";
+function getBooks(search, maxResult = 20, startIndex = 0) {
+  container.innerHTML = "";
   fetch(`https://www.googleapis.com/books/v1/volumes?q=
   ${search}&maxResults=${maxResult}&startIndex=${startIndex}`)
   .then(response => response.json())
@@ -30,7 +30,7 @@ function getBooks(search, maxResult = 10, startIndex = 0) {
 };
 
 function renderBooks(title, author, thumbnail) {
-  main.innerHTML +=
+  container.innerHTML +=
    `<div class="card">
       <img src="${thumbnail}" alt="thumbnail">
       <div class="info">
